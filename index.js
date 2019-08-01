@@ -27,7 +27,7 @@ const bot = new Discord.Client({ disableEveryone: true });
 
 // Quando o bot estiver pronto (online)
 bot.on('ready', async () => {
-  console.log(`${bot.user.username} está online!`);
+  console.log(`O bot da Rádio Afonso Santos está online!`);
 
   // URL da API da rádio
   const url =
