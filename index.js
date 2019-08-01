@@ -35,24 +35,32 @@ bot.on('ready', async () => {
 
   // 10000 ms = 10 s
   const intervalo = 10000;
+  var musica;
+  var dj;
 
   setInterval(function() {
-    var musica;
     axios
       .get(url)
       .then(response => {
         nowPlaying = response.data;
-        // Obtém o que está a tocar
-        // Artista - Título da Música
-        musica = nowPlaying.now_playing.song.text;
+        // Verifica se um DJ está ao vivo
+        if (nowPlaying.live.is_live == true) {
+          dj = nowPlaying.live.streamer_name;
+          bot.user.setActivity(`${dj} está ao vivo na rádio`, {
+            type: 'STREAMING'
+          });
+        } else {
+          // Transmissão Normal - Obtém o que está a tocar
+          // Artista - Título da Música
+          musica = nowPlaying.now_playing.song.text;
+          bot.user.setActivity(musica, {
+            type: 'LISTENING'
+          });
+        }
       })
       .catch(error => {
         // Mostra o erro na consola
         console.error(error);
-      })
-      .then(() => {
-        // Define a atividade do utilizador (bot) com a música atual
-        bot.user.setActivity(musica, { type: 'LISTENING' });
       });
   }, intervalo);
 });
