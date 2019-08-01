@@ -49,6 +49,7 @@ bot.on('ready', async () => {
           bot.user.setActivity(`${dj} está ao vivo na rádio`, {
             type: 'WATCHING'
           });
+          bot.user.setGame('Rádio Afonso Santos');
         } else {
           // Transmissão Normal - Obtém o que está a tocar
           // Artista - Título da Música
