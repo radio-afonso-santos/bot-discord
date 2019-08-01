@@ -31,7 +31,7 @@ bot.on('ready', async () => {
 
   // URL da API da rádio
   const url =
-    'https://painel.radio-afonsosantos.tk/api/live/nowplaying/radioafonsosantos';
+    'https://painel.radio-afonsosantos.tk/api/nowplaying/radioafonsosantos';
 
   // 10000 ms = 10 s
   const intervalo = 10000;
