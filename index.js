@@ -28,6 +28,7 @@ const bot = new Discord.Client({ disableEveryone: true });
 // Quando o bot estiver pronto (online)
 bot.on('ready', async () => {
   console.log(`O bot da Rádio Afonso Santos está online!`);
+  bot.user.setStatus('available');
 
   // URL da API da rádio
   const url =
@@ -46,9 +47,14 @@ bot.on('ready', async () => {
         // Verifica se um DJ está ao vivo
         if (nowPlaying.live.is_live == true) {
           dj = nowPlaying.live.streamer_name;
-          bot.user.setActivity(`${dj} está ao vivo na rádio`, {
-            type: 'WATCHING'
+          bot.user.setPresence({
+            game: {
+              name: `${dj} ao vivo`,
+              type: 'WATCHING',
+              url: 'https://radio-afonsosantos.tk'
+            }
           });
+
           bot.user.setGame('Rádio Afonso Santos');
         } else {
           // Transmissão Normal - Obtém o que está a tocar
