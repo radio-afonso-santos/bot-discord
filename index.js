@@ -47,7 +47,7 @@ bot.on('ready', async () => {
         if (nowPlaying.live.is_live == true) {
           dj = nowPlaying.live.streamer_name;
           bot.user.setActivity(`${dj} está ao vivo na rádio`, {
-            type: 'STREAMING'
+            type: 'WATCHING'
           });
         } else {
           // Transmissão Normal - Obtém o que está a tocar
