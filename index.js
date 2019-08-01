@@ -58,4 +58,4 @@ bot.on('ready', async () => {
 });
 
 // Faz login na API do Discord com o bot criado acima
-client.login(process.env.BOT_TOKEN);
+bot.login(process.env.BOT_TOKEN);
