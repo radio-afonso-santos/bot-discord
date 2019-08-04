@@ -30,10 +30,9 @@ bot.on('ready', async () => {
   console.log(`O bot da Rádio Afonso Santos está online!`);
 
   // URL da API da rádio
-  const url =
-    'https://painel.radio-afonsosantos.tk/api/nowplaying/radioafonsosantos';
+  const url = 'https://painel.radio-afonsosantos.tk/api/nowplaying/radioafonsosantos';
 
-  // 10000 ms = 10 s
+  // 15000 ms = 15 s
   const intervalo = 15000;
   var musica;
   var dj;
