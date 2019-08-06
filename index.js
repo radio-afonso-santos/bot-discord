@@ -19,7 +19,7 @@
  *  PACOTES NPM
  */
 
-const { Client } = require('discord.js');
+const Client = require('discord.js');
 const axios = require('axios');
 const chalk = require('chalk');
 require('dotenv').config();
@@ -76,6 +76,20 @@ bot.on('ready', async => {
         console.error(chalk.redBright('ERRO'), error);
       });
   }, intervalo);
+});
+
+/*
+ *  CADA VEZ QUE UM MEMBRO ENTRA NO SERVIDOR
+ */
+client.on('guildMemberAdd', member => {
+  // Procura o canal para onde enviar a mensagem
+  const channel = member.guild.channels.find(ch => ch.name === 'member-log');
+
+  // Caso o canal não seja encontrado, sai
+  if (!channel) return;
+
+  // Envia a mensagem
+  channel.send(`Bem-vindo ao servidor da Rádio Afonso Santos, ${member}`);
 });
 
 /*
