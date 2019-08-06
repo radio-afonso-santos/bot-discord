@@ -16,26 +16,38 @@
  */
 
 /*
- *  Inclusão de pacotes do NPM
+ *  PACOTES NPM
  */
-const Discord = require('discord.js');
+
+const { Client } = require('discord.js');
 const axios = require('axios');
+const chalk = require('chalk');
 require('dotenv').config();
 
-// Cria o bot
-const bot = new Discord.Client({ disableEveryone: true });
+/*
+ *  VARIÁVEIS
+ */
 
-// Quando o bot estiver pronto (online)
-bot.on('ready', async () => {
-  console.log(`O bot da Rádio Afonso Santos está online!`);
+const url = 'https://painel.radio-afonsosantos.tk/api/nowplaying/radioafonsosantos';
+var musica;
+var dj;
+const intervalo = 15000; // 15000 ms = 15 s
 
-  // URL da API da rádio
-  const url = 'https://painel.radio-afonsosantos.tk/api/nowplaying/radioafonsosantos';
+/*
+ *  INCIALIZAÇÃO DO BOT (cliente)
+ */
+const bot = new Client({ disableEveryone: true });
 
-  // 15000 ms = 15 s
-  const intervalo = 15000;
-  var musica;
-  var dj;
+/*
+ *  QUANDO O BOT ESTIVER ONLINE
+ */
+bot.on('ready', async => {
+  // Informa que o bot está online
+  console.log(chalk.blue('SUCESSO'), 'O bot da Rádio Afonso Santos está online!');
+
+  /*
+   *  OBTÉM OS DADOS DA API E ATUALIZA A PRESENÇA
+   */
 
   setInterval(function() {
     axios
@@ -54,18 +66,19 @@ bot.on('ready', async () => {
           // Transmissão Normal - Obtém o que está a tocar
           // Artista - Título da Música
           musica = nowPlaying.now_playing.song.text;
-          // bot.user.setActivity(musica, {
-          //   type: 'LISTENING'
-          // });
-          bot.user.setGame(musica, 'https://radio-afonsosantos.tk');
+          bot.user.setActivity(musica, {
+            type: 'LISTENING'
+          });
         }
       })
       .catch(error => {
         // Mostra o erro na consola
-        console.error(error);
+        console.error(chalk.redBright('ERRO'), error);
       });
   }, intervalo);
 });
 
-// Faz login na API do Discord com o bot criado acima
+/*
+ *  LOGIN DO BOT NA API DO DISCORD
+ */
 bot.login(process.env.BOT_TOKEN);
