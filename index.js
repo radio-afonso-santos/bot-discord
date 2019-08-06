@@ -83,13 +83,13 @@ bot.on('ready', async => {
  */
 client.on('guildMemberAdd', member => {
   // Procura o canal para onde enviar a mensagem
-  const channel = member.guild.channels.find(ch => ch.name === 'member-log');
+  const channel = member.guild.channels.find(ch => ch.name === 'geral');
 
   // Caso o canal não seja encontrado, sai
   if (!channel) return;
 
   // Envia a mensagem para o servidor e para a consola
-  channel.send(`Bem-vindo ao servidor da Rádio Afonso Santos, ${member}`);
+  channel.send(`**Bem-vindo ao servidor da Rádio Afonso Santos**, ${member}`);
   console.log(chalk.green('NOVO MEMBRO'), `Um novo membro juntou-se ao servidor (${member})`);
 });
 
