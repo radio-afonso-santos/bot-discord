@@ -57,7 +57,7 @@ bot.on('ready', async () => {
           // bot.user.setActivity(musica, {
           //   type: 'LISTENING'
           // });
-          bot.user.setGame(musica);
+          bot.user.setGame(musica, 'https://radio-afonsosantos.tk');
         }
       })
       .catch(error => {
