@@ -88,8 +88,9 @@ client.on('guildMemberAdd', member => {
   // Caso o canal não seja encontrado, sai
   if (!channel) return;
 
-  // Envia a mensagem
+  // Envia a mensagem para o servidor e para a consola
   channel.send(`Bem-vindo ao servidor da Rádio Afonso Santos, ${member}`);
+  console.log(chalk.green('NOVO MEMBRO'), `Um novo membro juntou-se ao servidor (${member})`);
 });
 
 /*
