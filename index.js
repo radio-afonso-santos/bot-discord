@@ -28,7 +28,7 @@ require('dotenv').config();
  *  VARIÁVEIS
  */
 
-const url = 'https://painel.radio-afonsosantos.tk/api/nowplaying/radioafonsosantos';
+const url = 'https://painel.radio-afonsosantos.tk/api/nowplaying_static/radioafonsosantos.json';
 var musica;
 var dj;
 const intervalo = 15000; // 15000 ms = 15 s
