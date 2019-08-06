@@ -19,7 +19,7 @@
  *  PACOTES NPM
  */
 
-const Client = require('discord.js');
+const Discord = require('discord.js');
 const axios = require('axios');
 const chalk = require('chalk');
 require('dotenv').config();
@@ -36,7 +36,7 @@ const intervalo = 15000; // 15000 ms = 15 s
 /*
  *  INCIALIZAÇÃO DO BOT (cliente)
  */
-const bot = new Client({ disableEveryone: true });
+const bot = new Discord.Client();
 
 /*
  *  QUANDO O BOT ESTIVER ONLINE
@@ -76,21 +76,6 @@ bot.on('ready', async => {
         console.error(chalk.redBright('ERRO'), error);
       });
   }, intervalo);
-});
-
-/*
- *  CADA VEZ QUE UM MEMBRO ENTRA NO SERVIDOR
- */
-client.on('guildMemberAdd', member => {
-  // Procura o canal para onde enviar a mensagem
-  const channel = member.guild.channels.find(ch => ch.name === 'geral');
-
-  // Caso o canal não seja encontrado, sai
-  if (!channel) return;
-
-  // Envia a mensagem para o servidor e para a consola
-  channel.send(`**Bem-vindo ao servidor da Rádio Afonso Santos**, ${member}`);
-  console.log(chalk.green('NOVO MEMBRO'), `Um novo membro juntou-se ao servidor (${member})`);
 });
 
 /*
