@@ -44,6 +44,8 @@ bot.on('ready', async () => {
         nowPlaying = response.data;
         // Verifica se um DJ está ao vivo
         if (nowPlaying.live.is_live == true) {
+          // DJ ao Vivo - Obtém o nome do DJ
+          // Nome do DJ ao vivo
           dj = nowPlaying.live.streamer_name;
           bot.user.setActivity(`${dj} ao vivo`, {
             type: 'WATCHING'
@@ -52,9 +54,10 @@ bot.on('ready', async () => {
           // Transmissão Normal - Obtém o que está a tocar
           // Artista - Título da Música
           musica = nowPlaying.now_playing.song.text;
-          bot.user.setActivity(musica, {
-            type: 'LISTENING'
-          });
+          // bot.user.setActivity(musica, {
+          //   type: 'LISTENING'
+          // });
+          bot.user.setGame(musica);
         }
       })
       .catch(error => {
