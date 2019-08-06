@@ -7,7 +7,7 @@
   https://github.com/AzuraCast/AzuraCast
  
   Afonso Santos
-  http://afonsosantos.x10.mx
+  http://afonsosantos-dev.tk
   https://github.com/afonsosantos
  
   Criado em 08/2019
