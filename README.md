@@ -15,7 +15,7 @@
 
 ## Documentação
 
-Visite [a documentação](https://docs.afonsosantos-dev.tk/projetos/radioafonsosantos/bot/) para a documentação deste projeto.
+Visite [esta página](https://docs.afonsosantos-dev.tk/projetos/radioafonsosantos/bot/) para a documentação deste projeto.
 
 ## Licença
 
