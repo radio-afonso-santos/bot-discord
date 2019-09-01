@@ -13,9 +13,9 @@
 
 - [Heroku](https://www.heroku.com/) para a hospedagem do Bot
 
-## Uso
+## Documentação
 
-Visite [a documentação](https://docs.afonsosantos-dev.tk/projetos/radioafonsosantos/bot/) para saber como utilizar este Bot.
+Visite [a documentação](https://docs.afonsosantos-dev.tk/projetos/radioafonsosantos/bot/) para a documentação deste projeto.
 
 ## Licença
 
